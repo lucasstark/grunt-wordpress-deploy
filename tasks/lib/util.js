@@ -153,7 +153,7 @@ exports.init = function (grunt) {
       grunt.log.oklns("Creating DUMP of remote database");
       var tpl_ssh = grunt.template.process(tpls.ssh, {
         data: {
-          host: config.ssh_host
+          host: config.ssh_db_host || config.ssh_host
         }
       });
       cmd = tpl_ssh + " '" + cmd + "'";
@@ -179,7 +179,7 @@ exports.init = function (grunt) {
     } else {
       var tpl_ssh = grunt.template.process(tpls.ssh, {
         data: {
-          host: config.ssh_host
+           host: config.ssh_db_host || config.ssh_host
         }
       });
 
